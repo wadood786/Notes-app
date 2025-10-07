@@ -13,7 +13,7 @@ pipeline{
             steps{
                 echo "Build has started"
                script{
-                   docker_build("notes-app","latest","abdulwadood61999@gmqil.com")
+                   docker_build("notes-app","latest","abdulwadood61999@gmail.com")
                }
                 echo "Image has created successfully"
             }
