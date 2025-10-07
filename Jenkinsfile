@@ -22,7 +22,7 @@ pipeline{
             steps{
                 echo "Image is pushing to dockerhub"
                 script{
-                    docker_push("notes-app",""latest","abdulwadood61999@gmail.com")
+                    docker_push("notes-app","latest","abdulwadood61999@gmail.com")
                 }
             }
         }
