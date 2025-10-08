@@ -5,7 +5,7 @@ pipeline{
         stage("Cloning"){
             steps{
               script{
-                  clone("https://github.com/wadood786/Notes-app.git" , "main")
+                  cloning("https://github.com/wadood786/Notes-app.git" , "main")
               }
             }
         }
@@ -13,7 +13,7 @@ pipeline{
             steps{
                 echo "Build has started"
                script{
-                   docker_build("notes-app","latest","abdulwadood61999@gmail.com")
+                   docker_building("notes-app","latest","abdulwadood61999@gmail.com")
                }
                 echo "Image has created successfully"
             }
@@ -22,7 +22,7 @@ pipeline{
             steps{
                 echo "Image is pushing to dockerhub"
                 script{
-                    docker_push("notes-app","latest","abdulwadood61999@gmail.com")
+                    docker_pushing("notes-app","latest","abdulwadood61999@gmail.com")
                 }
             }
         }
