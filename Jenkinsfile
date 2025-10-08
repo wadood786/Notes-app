@@ -1,6 +1,6 @@
 @Library("Shared") _
 pipeline {
-    agent { label "agent vinod" }
+    agent any
 
     environment {
         SONAR_HOME = tool "Sonar"   // Must match Jenkins global tool name
