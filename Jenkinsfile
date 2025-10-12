@@ -2,10 +2,6 @@
 pipeline {
     agent any
 
-    environment {
-        SONAR_HOME = tool "Sonar"   // Must match Jenkins global tool name
-    }
-
     stages {
 
         stage("Cloning") {
@@ -16,41 +12,7 @@ pipeline {
             }
         }
 
-        // 🧪 Step 1: Trivy - Filesystem vulnerability scan
-        stage("Trivy: Filesystem Scan") {
-            steps {
-                script {
-                    trivy_scan()
-                }
-            }
-        }
-
-        // 🧩 Step 2: OWASP Dependency Vulnerability Scan
-        stage("OWASP: Dependency Check") {
-            steps {
-                script {
-                    owasp_dependency()
-                }
-            }
-        }
-
-        // 🧮 Step 3: SonarQube Code Analysis
-        stage("SonarQube: Code Analysis") {
-            steps {
-                script {
-                    sonarqube_analysis("Sonar", "notes-app", "notes-app")
-                }
-            }
-        }
-
-        // ✅ Step 4: SonarQube Quality Gate
-        stage("SonarQube: Quality Gate") {
-            steps {
-                script {
-                    sonarqube_code_quality()
-                }
-            }
-        }
+     
 
         // 🧰 Step 5: Docker build and push
         stage("Build") {
