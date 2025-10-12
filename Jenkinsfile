@@ -11,6 +11,14 @@ pipeline {
                 }
             }
         }
+        stage("trivy File system scanning"){
+            steps{
+                script{
+                    trivy_scan()
+                }
+            }
+            
+        }
 
      
 
